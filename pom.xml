@@ -98,7 +98,7 @@
             <artifactId>jib-maven-plugin</artifactId>
             <version>3.1.4</version>
             <configuration>
-                <containerizingMode>packaged<containerizingMode>   
+                <containerizingMode>packaged</containerizingMode>   
                 <to>
                     <image>docker.io/trisngo/${project.artifactId}</image>
                     <tags>
