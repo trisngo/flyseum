@@ -113,6 +113,11 @@
                     <ports>
                         <port>8080</port>
                     </ports>
+                    <entrypoint>
+                      <arg>/bin/sh</arg>
+                      <arg>-c</arg>
+                      <arg>exec java -jar target/dependency/webapp-runner.jar target/*.war</arg>
+                    </entrypoint>
                 </container>
                 <from>
                     <image>openjdk:11-jdk-slim</image>
