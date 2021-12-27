@@ -1,9 +1,10 @@
 name: Final Project CI/CD
 
 on:
-  push:
-    branches:
-      - 'master'
+  workflow_run:
+    workflows: ["Semgrep"]
+    types:
+      - completed
 
 jobs:
   build_and_test:
@@ -17,10 +18,13 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - name: Test with Maven
+        run: mvn clean test
       - name: Build with Maven
         run: mvn package
 
   push_to_registry:
+    needs: build_and_test
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:

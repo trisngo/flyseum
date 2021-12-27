@@ -1,3 +1,4 @@
+name: Semgrep
 on:
   pull_request: {}
   push:
